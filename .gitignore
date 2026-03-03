@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+dist/
+# yarn error logs
+yarn-error.log
+
+# Environment varibales
+.env*
+!.env*.example
+
+# Code coverage
+coverage
+
+# misc
+.DS_Store
+
+# Dev db data
+db
+
+# TypeScript
+build
+.tsbuildinfo
+
+# Prisma generated files
+prisma/generated
+src/generated
