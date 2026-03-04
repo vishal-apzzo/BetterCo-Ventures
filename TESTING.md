@@ -4,7 +4,7 @@ This file describes how to run the application and how to test the course comple
 
 ## Prerequisites
 
-- **Node.js** 18 or higher  
+- **Node.js** 20.x  
 - **Yarn**  
 - **PostgreSQL** (running, with a database created)  
 - **Redis** (optional; the app runs without it but will log a connection warning)
@@ -14,7 +14,7 @@ This file describes how to run the application and how to test the course comple
 ### 1. Install dependencies
 
 ```bash
-cd test-task
+cd BetterCo-Ventures
 yarn install
 ```
 
