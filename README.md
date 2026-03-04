@@ -6,7 +6,7 @@ This project is set up to deploy on [Railway](https://railway.com) using the **R
 
 ### What’s configured
 
-- **Railpack** is set as the builder in `railway.json`.
+- **Railpack** is set as the builder in `railway.json` .
 - **Yarn** is used for install, build, and start (detected via `.yarnrc.yml` and `yarn.lock`).
 - **Build**: `yarn build` runs `prisma generate` then `tsc`.
 - **Start**: `yarn start` runs `node dist/index.js`.
