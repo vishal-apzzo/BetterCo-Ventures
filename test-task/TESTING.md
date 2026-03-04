@@ -52,18 +52,18 @@ yarn build
 yarn start
 ```
 
-The API is available at `http://localhost:3000` (or the port you set in `.env`).
+**Production:** `https://spirited-consideration-production.up.railway.app` · **Local:** `http://localhost:3000` (or the port in `.env`).
 
 ---
 
 ## API Endpoints and How to Test
 
-Base URL: `http://localhost:3000/api/course-completion`
+Base URL: `https://spirited-consideration-production.up.railway.app/api/course-completion` (use `http://localhost:3000/api/course-completion` for local)
 
 ### Health check
 
 ```bash
-curl "http://localhost:3000/health"
+curl "https://spirited-consideration-production.up.railway.app/health"
 ```
 
 Expected: `200` with `{ "status": "ok", "timestamp": "..." }`.
@@ -78,7 +78,7 @@ Expected: `200` with `{ "status": "ok", "timestamp": "..." }`.
 **Example – success (200):**
 
 ```bash
-curl -X POST "http://localhost:3000/api/course-completion/create" \
+curl -X POST "https://spirited-consideration-production.up.railway.app/api/course-completion/create" \
   -H "Content-Type: application/json" \
   -d "{\"user_id\":\"user-123\",\"course_id\":\"course-456\",\"completion_status\":\"completed\"}"
 ```
@@ -86,7 +86,7 @@ curl -X POST "http://localhost:3000/api/course-completion/create" \
 **Example – validation error (400, missing field):**
 
 ```bash
-curl -X POST "http://localhost:3000/api/course-completion/create" \
+curl -X POST "https://spirited-consideration-production.up.railway.app/api/course-completion/create" \
   -H "Content-Type: application/json" \
   -d "{\"user_id\":\"user-123\",\"course_id\":\"course-456\"}"
 ```
@@ -103,7 +103,7 @@ Expected: `400` with a structured error listing the missing field(s).
 **Example:**
 
 ```bash
-curl -X POST "http://localhost:3000/api/course-completion" \
+curl -X POST "https://spirited-consideration-production.up.railway.app/api/course-completion" \
   -H "Content-Type: application/json" \
   -d "{\"filter\":{},\"page\":1,\"limit\":10,\"sortBy\":\"createdAt\",\"sortType\":\"desc\"}"
 ```
@@ -121,7 +121,7 @@ Replace `:courseCompletionId` with an actual ID (e.g. from the create response).
 **Example:**
 
 ```bash
-curl "http://localhost:3000/api/course-completion/ac7bcd33-02e4-4b64-8b77-4079580be6b6"
+curl "https://spirited-consideration-production.up.railway.app/api/course-completion/ac7bcd33-02e4-4b64-8b77-4079580be6b6"
 ```
 
 Expected: `200` with the single record, or `404` if not found.
@@ -136,7 +136,7 @@ Expected: `200` with the single record, or `404` if not found.
 **Example:**
 
 ```bash
-curl -X PATCH "http://localhost:3000/api/course-completion/YOUR_ID" \
+curl -X PATCH "https://spirited-consideration-production.up.railway.app/api/course-completion/YOUR_ID" \
   -H "Content-Type: application/json" \
   -d "{\"completion_status\":\"in_progress\"}"
 ```
@@ -152,7 +152,7 @@ Expected: `200` with the updated record, or `404` if not found.
 **Example:**
 
 ```bash
-curl -X DELETE "http://localhost:3000/api/course-completion/YOUR_ID"
+curl -X DELETE "https://spirited-consideration-production.up.railway.app/api/course-completion/YOUR_ID"
 ```
 
 Expected: `200` with the deleted record, or `404` if not found.
@@ -161,7 +161,7 @@ Expected: `200` with the deleted record, or `404` if not found.
 
 ## Testing with Postman
 
-1. Set base URL: `http://localhost:3000/api/course-completion`.
+1. Set base URL: `https://spirited-consideration-production.up.railway.app/api/course-completion` (or `http://localhost:3000/api/course-completion` for local).
 2. For **Create:** method `POST`, URL suffix `/create`, body raw JSON with `user_id`, `course_id`, `completion_status`.
 3. For **List:** method `POST`, URL suffix `/`, body raw JSON with optional `filter`, `page`, `limit`, `sortBy`, `sortType`.
 4. For **Get one:** method `GET`, URL suffix `/:courseCompletionId`.

@@ -141,7 +141,7 @@ yarn start
 
 ## API Overview
 
-Base URL: `http://localhost:3000` (or your `PORT`).
+Base URL: **Production:** `https://spirited-consideration-production.up.railway.app` · **Local:** `http://localhost:3000` (or your `PORT`).
 
 | Method | Path | Description |
 |--------|------|-------------|
