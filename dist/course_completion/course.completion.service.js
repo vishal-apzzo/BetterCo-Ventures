@@ -26,8 +26,9 @@ const getCourseCompletionByObj = async (filter, _include, tx) => {
     });
 };
 const deleteCourseCompletionById = async (id, tx) => {
-    const record = await getClient(tx).courseCompletion.delete({
+    const record = await getClient(tx).courseCompletion.update({
         where: { id },
+        data: { deleted: true },
     });
     return record;
 };

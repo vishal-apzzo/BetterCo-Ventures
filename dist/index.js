@@ -9,18 +9,20 @@ const prisma_1 = require("./lib/prisma");
 const redis_1 = require("./lib/redis");
 const logger_1 = __importDefault(require("./config/logger"));
 async function main() {
-    await prisma_1.prisma.$connect();
-    logger_1.default.info("info: Connected to SQL Database");
-    try {
+    let server;
+    prisma_1.prisma.$connect()
+        .then(async () => {
+        logger_1.default.info('Connected to SQL Database');
         await (0, redis_1.connectRedis)();
-        logger_1.default.info("info: Connected to Redis");
-    }
-    catch (err) {
-        logger_1.default.warn("warn: Redis connection failed; continuing without Redis.", err.message);
-    }
-    const server = app_1.app.listen(config_1.config.port, () => {
-        logger_1.default.info("info: Server running on port " + config_1.config.port);
-        logger_1.default.info("info: Environment: " + config_1.config.nodeEnv);
+        server = app_1.app.listen(config_1.config.port, () => {
+            logger_1.default.info(`Server running on port ${config_1.config.port}`);
+            logger_1.default.info(`Environment: ${config_1.config.nodeEnv}`);
+        });
+    })
+        .catch((error) => {
+        logger_1.default.error('Failed to connect to database:', error);
+        logger_1.default.error('Application will exit. Check DATABASE_URL environment variable.');
+        process.exit(1);
     });
     const shutdown = async () => {
         server.close(() => {

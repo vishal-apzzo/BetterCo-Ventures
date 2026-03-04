@@ -91,7 +91,7 @@ const getCourseCompletions = catchAsync(async (req: Request, res: Response) => {
     ...options,
     limit: options.limit != null ? Number(options.limit) : undefined,
     page: options.page != null ? Number(options.page) : undefined,
-    sortBy: options.sortBy as keyof import("../generated/prisma/client").CourseCompletion | undefined,
+    sortBy: options.sortBy as keyof import("@prisma/client").CourseCompletion | undefined,
     sortType: (options.sortType as "asc" | "desc") || "desc",
   };
   const cacheKey = buildCacheKey(LIST_PREFIX, req.body);

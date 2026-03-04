@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma, CourseCompletion } from "../generated/prisma/client";
+import { PrismaClient, Prisma, CourseCompletion } from "@prisma/client";
 export type PrismaTx = PrismaClient | Prisma.TransactionClient;
 declare const _default: {
     createCourseCompletion: <Key extends keyof CourseCompletion>(bodyParam: Prisma.CourseCompletionCreateInput, tx?: PrismaTx) => Promise<Pick<CourseCompletion, Key>>;

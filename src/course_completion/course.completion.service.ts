@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma, CourseCompletion } from "../generated/prisma/client";
+import { PrismaClient, Prisma, CourseCompletion } from "@prisma/client";
 import { prisma } from "../lib/prisma";
 
 export type PrismaTx = PrismaClient | Prisma.TransactionClient;
